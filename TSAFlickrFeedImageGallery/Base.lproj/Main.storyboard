@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cGI-nf-7ee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RwX-fp-fOP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Flickr Public Feed Collection View Controller-->
+        <!--Flickr Public Feeds-->
         <scene sceneID="cAl-Fv-cWZ">
             <objects>
                 <collectionViewController id="cGI-nf-7ee" customClass="FlickrPublicFeedCollectionViewController" customModule="TSAFlickrFeedImageGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,13 +31,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XqC-SJ-Oqo">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XqC-SJ-Oqo">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="OSy-rD-JLe"/>
+                                                <constraint firstAttribute="height" constant="100" id="Xtg-C8-eCT"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="XqC-SJ-Oqo" firstAttribute="leading" secondItem="61X-h6-xPy" secondAttribute="leading" id="ZIH-1U-Wqi"/>
+                                    <constraint firstAttribute="trailing" secondItem="XqC-SJ-Oqo" secondAttribute="trailing" id="aGC-Pf-qYK"/>
+                                    <constraint firstItem="XqC-SJ-Oqo" firstAttribute="top" secondItem="61X-h6-xPy" secondAttribute="top" id="aLD-xY-lYp"/>
+                                    <constraint firstAttribute="bottom" secondItem="XqC-SJ-Oqo" secondAttribute="bottom" id="dKJ-EP-Wzo"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="flickrImgView" destination="XqC-SJ-Oqo" id="TLC-z9-hX8"/>
                                 </connections>
@@ -48,11 +57,29 @@
                             <outlet property="delegate" destination="cGI-nf-7ee" id="YVW-Bm-iHF"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="53Q-gI-Lvb"/>
+                    <navigationItem key="navigationItem" title="Flickr Public Feeds" id="53Q-gI-Lvb"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXk-Yn-l1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796" y="-63"/>
+            <point key="canvasLocation" x="1407.2" y="-330.58470764617692"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xli-GA-c6q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RwX-fp-fOP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3NN-nc-jRe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cGI-nf-7ee" kind="relationship" relationship="rootViewController" id="5rK-bf-AfI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Bd-fs-9FH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="-331.48425787106447"/>
         </scene>
     </scenes>
 </document>
