@@ -8,7 +8,14 @@
 
 import UIKit
 
+/**
+ * FlickrPublicFeedCollectionViewController: Collection view controller show images fetched from flickr public feeds.
+ */
+
+//Custom cell Identifier for UICollectionViewCell
 private let reuseIdentifier = "ImageCell"
+//Segue identifier of image details view controller
+private let showImageDetailsIdentifier = "ShowImageDetails"
 
 class FlickrPublicFeedCollectionViewController: UICollectionViewController {
 
@@ -29,15 +36,18 @@ class FlickrPublicFeedCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == showImageDetailsIdentifier {
+//            let imageCell : FlickrImageCollectionViewCell = sender as! FlickrImageCollectionViewCell
+            let imageViewController = segue.destination as! FlickrImageViewController
+            imageViewController.imageDetails = FlickrImage()
+        }
     }
-    */
+ 
 
     // MARK: UICollectionViewDataSource
 
@@ -57,7 +67,7 @@ class FlickrPublicFeedCollectionViewController: UICollectionViewController {
 
         if cell is FlickrImageCollectionViewCell {
             let imgCell = cell as! FlickrImageCollectionViewCell
-            imgCell.flickrImgView.image = #imageLiteral(resourceName: "placeholder")
+            imgCell.flickrImgView?.image = #imageLiteral(resourceName: "placeholder")
         }
         return cell
     }
