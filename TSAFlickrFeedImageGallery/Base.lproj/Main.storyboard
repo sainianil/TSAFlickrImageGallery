@@ -81,7 +81,7 @@
                                 <rect key="frame" x="16" y="72" width="343" height="300"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55z-C9-Ozv">
-                                <rect key="frame" x="16" y="391" width="343" height="256"/>
+                                <rect key="frame" x="16" y="401" width="343" height="246"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7k-gY-4aV">
                                         <rect key="frame" x="79" y="0.0" width="264" height="18"/>
@@ -215,7 +215,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="55z-C9-Ozv" firstAttribute="top" secondItem="pWT-4y-dO2" secondAttribute="bottom" constant="19" id="AeE-EL-pQP"/>
+                            <constraint firstItem="55z-C9-Ozv" firstAttribute="top" secondItem="pWT-4y-dO2" secondAttribute="bottom" constant="29" id="AeE-EL-pQP"/>
                             <constraint firstItem="xhc-UB-2Ei" firstAttribute="top" secondItem="55z-C9-Ozv" secondAttribute="bottom" constant="20" id="Fnv-gG-Xcw"/>
                             <constraint firstItem="55z-C9-Ozv" firstAttribute="trailing" secondItem="9P8-9f-1bi" secondAttribute="trailingMargin" id="Rg7-8F-VDh"/>
                             <constraint firstItem="pWT-4y-dO2" firstAttribute="top" secondItem="BAU-wj-J6x" secondAttribute="bottom" constant="8" id="Wfi-f8-ai0"/>

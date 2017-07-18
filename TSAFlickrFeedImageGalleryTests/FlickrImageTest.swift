@@ -23,7 +23,7 @@ class FlickrImageTest: XCTestCase {
     }
     
     func testDefaultValues() {
-        let defaultValue = "Not available"
+        let defaultValue = ""
         XCTAssertEqual(flickrImg.title!, defaultValue, "Wrong default value of title")
         XCTAssertEqual(flickrImg.link!, defaultValue, "Wrong default value of link")
         XCTAssertEqual(flickrImg.media!, defaultValue, "Wrong default value of media")
@@ -71,13 +71,21 @@ class FlickrImageTest: XCTestCase {
     }
     
     func testFlickrFeedForNil() {
+        flickrImg.title = nil
         XCTAssertNotNil(flickrImg.title!, "title is nil")
+        flickrImg.link = nil
         XCTAssertNotNil(flickrImg.link!, "link is nil")
+        flickrImg.dateTaken = nil
         XCTAssertNotNil(flickrImg.dateTaken!, "dateTaken is nil")
+        flickrImg.imageDesc = nil
         XCTAssertNotNil(flickrImg.imageDesc!, "imageDesc is nil")
+        flickrImg.published = nil
         XCTAssertNotNil(flickrImg.published!, "published is nil")
+        flickrImg.author = nil
         XCTAssertNotNil(flickrImg.author!, "author is nil")
+        flickrImg.authorId = nil
         XCTAssertNotNil(flickrImg.authorId!, "authorId is nil")
+        flickrImg.tags = nil
         XCTAssertNotNil(flickrImg.tags!, "tags is nil")
     }
     
