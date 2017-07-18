@@ -29,7 +29,7 @@ class FlickrImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        flickrImageView?.image = #imageLiteral(resourceName: "placeholder")
+        flickrImageView?.af_setImage(withURL: URL(string:(imageDetails?.media)!)!, placeholderImage: #imageLiteral(resourceName: "placeholder"))
         flickrImageTitle.text = imageDetails?.title
         flickrAuthor.text = imageDetails?.author
         flickrAuthorId.text = imageDetails?.authorId
