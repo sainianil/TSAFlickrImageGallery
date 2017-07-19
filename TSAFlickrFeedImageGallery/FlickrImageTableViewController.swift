@@ -23,14 +23,18 @@ class FlickrImageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Show Toolbar
+        self.navigationController?.setToolbarHidden(false, animated: false)
+        
         //set variable cell size
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 40
+        
         //set asychronously image to imageView, if there is no image set the placeholder
         flickrImageView?.af_setImage(withURL: URL(string:(imageDetails?.media)!)!, placeholderImage: #imageLiteral(resourceName: "placeholder"))
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -117,7 +121,6 @@ class FlickrImageTableViewController: UITableViewController {
     */
     @IBAction func shareFlickrImages(_ sender: UIBarButtonItem) {
         let shareImage = self.flickrImageView?.image
-        
         //Share image if image is nil, try to share link if link is also nil, will share placeholder image
         let activityViewController = UIActivityViewController(
             activityItems: ["Check out this Image I think you might like it! \(imageDetails?.media! ?? "")", shareImage ?? #imageLiteral(resourceName: "placeholder")], applicationActivities: nil)

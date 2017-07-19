@@ -50,7 +50,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="flickrImgView" destination="XqC-SJ-Oqo" id="TLC-z9-hX8"/>
-                                    <segue destination="o78-yg-NKy" kind="show" identifier="ShowImageDetails" id="s9A-UP-Zkh"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
