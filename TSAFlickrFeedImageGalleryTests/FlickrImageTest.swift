@@ -41,6 +41,10 @@ class FlickrImageTest: XCTestCase {
         flickrImg.title = title
         XCTAssertEqual(flickrImg.title!, title, "Wrong value of title")
         
+        let media = "http://flickr.com/photos/358014443767a5cbbd09"
+        flickrImg.media = media
+        XCTAssertEqual(flickrImg.media!, media, "Wrong value of media")
+        
         let link = "http://farm5.staticflickr.com/4290/35801444376_e7a5cbbd09_m.jpg"
         flickrImg.link = link
         XCTAssertEqual(flickrImg.link!, link, "Wrong value of link")
@@ -75,6 +79,8 @@ class FlickrImageTest: XCTestCase {
         XCTAssertNotNil(flickrImg.title!, "title is nil")
         flickrImg.link = nil
         XCTAssertNotNil(flickrImg.link!, "link is nil")
+        flickrImg.media = nil
+        XCTAssertNotNil(flickrImg.media!, "media is nil")
         flickrImg.dateTaken = nil
         XCTAssertNotNil(flickrImg.dateTaken!, "dateTaken is nil")
         flickrImg.imageDesc = nil
@@ -89,6 +95,46 @@ class FlickrImageTest: XCTestCase {
         XCTAssertNotNil(flickrImg.tags!, "tags is nil")
     }
     
+    func testFlickrJSONKeys() {
+        let flickrFeedKeys = ["Title", "Link", "Media", "Date Taken", "Description", "Published", "Author", "AuthorId", "Tags"]
+        XCTAssertEqual(flickrImg.jsonKeys(), flickrFeedKeys, "Keys are not matched!")
+    }
+    
+    func testjsonValueForKey() {
+        let flickrFeedKeys = flickrImg.jsonKeys()
+        
+        flickrImg.title = "In the interest of additional quality millage for the week, I figured a nice 8k warm-up before our weekly social 5k would be a good start, and the views did not disappoint. #helderbergtrails #running #runner #trailrun #stravaphoto #nature #fun #southafric"
+        XCTAssertEqual(flickrImg.title!, flickrImg.jsonValue(forKey: flickrFeedKeys[0]), "Wrong value of title")
+        
+        flickrImg.link = "http://farm5.staticflickr.com/4290/35801444376_e7a5cbbd09_m.jpg"
+        XCTAssertEqual(flickrImg.link!, flickrImg.jsonValue(forKey: flickrFeedKeys[1]), "Wrong value of link")
+        
+        flickrImg.media = "http://flickr.com/photos/358014443767a5cbbd09"
+        XCTAssertEqual(flickrImg.media!, flickrImg.jsonValue(forKey: flickrFeedKeys[2]), "Wrong value of media")
+        
+        flickrImg.dateTaken = "2017-07-10T20:11:30-08:00"
+        XCTAssertEqual(flickrImg.dateTaken!, flickrImg.jsonValue(forKey: flickrFeedKeys[3]), "Wrong value of dateTaken")
+        
+        let description = "Description"
+        flickrImg.imageDesc = description
+        XCTAssertEqual(flickrImg.imageDesc!, flickrImg.jsonValue(forKey: flickrFeedKeys[4]), "Wrong value of imageDesc")
+        
+        let published = "2017-07-10T18:11:30Z"
+        flickrImg.published = published
+        XCTAssertEqual(flickrImg.published!, flickrImg.jsonValue(forKey: flickrFeedKeys[5]), "Wrong value of published")
+        
+        let author = "nobody@flickr.com (\"Reme Le Hane\")"
+        flickrImg.author = author
+        XCTAssertEqual(flickrImg.author!, flickrImg.jsonValue(forKey: flickrFeedKeys[6]), "Wrong value of author")
+        
+        let author_id = "85994282@N07"
+        flickrImg.authorId = author_id
+        XCTAssertEqual(flickrImg.authorId!, flickrImg.jsonValue(forKey: flickrFeedKeys[7]), "Wrong value of authorId")
+        
+        let tags = "in interest additional quality millage for week i figured nice 8k warmup before our weekly social 5k would be good start views did disappoint helderbergtrails running runner trailrun stravaphoto nature fun southafrica tomtom tomtomadventurer fitness trails outdoorsports stravarun runsa runninglife sauconyperegrine saucony resultsstarthere teamspca capespca ctmarathon peace trail run this september if you like support fundraising project great cause please checkout link bio any much appreciated d"
+        flickrImg.tags = tags
+        XCTAssertEqual(flickrImg.tags!, flickrImg.jsonValue(forKey: flickrFeedKeys[8]), "Wrong value of tags")
+    }
    /* func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

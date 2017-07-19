@@ -21,6 +21,7 @@ class FlickrFeedFetcher: NSObject {
                 switch response.result {
                 case .success(let value):
                     if let jsonDic = value as? [String : AnyObject] {
+//                        print(jsonDic)
                         completionHandler(jsonDic)
                     } else {
                         completionHandler(nil)
@@ -32,4 +33,5 @@ class FlickrFeedFetcher: NSObject {
             }
         }
     }
+    
 }

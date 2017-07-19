@@ -13,6 +13,8 @@
 import UIKit
 
 class FlickrImage: NSObject {
+    private let flickrFeedKeys = ["Title", "Link", "Media", "Date Taken", "Description", "Published", "Author", "AuthorId", "Tags"]
+    
     var title: String? {
         didSet {
             if title == nil {
@@ -87,5 +89,36 @@ class FlickrImage: NSObject {
         self.author = ""
         self.authorId = ""
         self.tags = ""
+    }
+    
+    func jsonKeys() -> [String] {
+        return flickrFeedKeys
+    }
+    
+    func jsonValue(forKey key:String) -> String {
+        var value = ""
+        switch key {
+        case "Title":
+            value = self.title!
+        case "Link":
+            value = self.link!
+        case "Media":
+            value = self.media!
+        case "Date Taken":
+            value = self.dateTaken!
+        case "Description":
+            value = self.imageDesc!
+        case "Published":
+            value = self.published!
+        case "Author":
+            value = self.author!
+        case "AuthorId":
+            value = self.authorId!
+        case "Tags":
+            value = self.tags!
+        default:
+            value = ""
+        }
+        return value
     }
 }
