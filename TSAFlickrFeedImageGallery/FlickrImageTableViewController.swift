@@ -22,6 +22,8 @@ class FlickrImageTableViewController: UITableViewController {
     @IBOutlet weak var flickrImageView: UIImageView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set variable cell size
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 40
         //set asychronously image to imageView, if there is no image set the placeholder

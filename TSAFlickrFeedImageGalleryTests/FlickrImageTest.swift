@@ -135,6 +135,7 @@ class FlickrImageTest: XCTestCase {
         flickrImg.tags = tags
         XCTAssertEqual(flickrImg.tags!, flickrImg.jsonValue(forKey: flickrFeedKeys[8]), "Wrong value of tags")
     }
+    
    /* func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

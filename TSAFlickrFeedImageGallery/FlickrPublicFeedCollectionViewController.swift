@@ -34,9 +34,6 @@ class FlickrPublicFeedCollectionViewController: UICollectionViewController, UISe
         // Register cell classes
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        //Hide toolbar
-        self.navigationController?.setToolbarHidden(true, animated: false)
-        
         //Search at the top
         self.searchController = UISearchController(searchResultsController:  nil)
         self.searchController.searchResultsUpdater = self
@@ -175,6 +172,7 @@ class FlickrPublicFeedCollectionViewController: UICollectionViewController, UISe
         //Create flickrImageFetcher object which will request for feeds
        let flickrImageFetcher = FlickrFeedFetcher()
         flickrImageFetcher.requestFlickr(withFeedLink: flickrLink) { [weak self] jsonResponse in
+            
             //Verify jsonResponse for nil
             if let json = jsonResponse {
 //                print(json)
@@ -201,6 +199,20 @@ class FlickrPublicFeedCollectionViewController: UICollectionViewController, UISe
         //add action to alert
         alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func sortImagesByDateTaken(_ sender: UIBarButtonItem) {
+        let sortedList : [FlickrImage] = flickrImages.sorted{ $0.dateTakenAsDate.compare($1.dateTakenAsDate) == .orderedAscending }
+        //        print(sortedList)
+        flickrImages = sortedList as [FlickrImage]
+        self.collectionView?.reloadData()
+    }
+    
+    @IBAction func sortImagesByDatePublished(_ sender: UIBarButtonItem) {
+        let sortedList : [FlickrImage] = flickrImages.sorted { $0.publishedAsDate.compare($1.publishedAsDate) == .orderedAscending }
+        //        print(sortedList)
+        flickrImages = sortedList as [FlickrImage]
+        self.collectionView?.reloadData()
     }
     
     // MARK: Trait collection delegate methods

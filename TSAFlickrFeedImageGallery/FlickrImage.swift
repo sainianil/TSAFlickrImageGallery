@@ -79,6 +79,18 @@ class FlickrImage: NSObject {
         }
     }
     
+    var dateTakenAsDate: Date {
+        get {
+            return covertStringDateToDate(strDate: self.dateTaken!)!
+        }
+    }
+    
+    var publishedAsDate : Date {
+        get {
+            return covertStringDateToDate(strDate: self.published!)!
+        }
+    }
+    
     override init() {
         self.title = ""
         self.link = ""
@@ -120,5 +132,13 @@ class FlickrImage: NSObject {
             value = ""
         }
         return value
+    }
+    
+    private func covertStringDateToDate(strDate:String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" //"2017-04-27T12:17:17-08:00"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+        let date = dateFormatter.date(from: strDate) //according to date format date string
+        return date ?? Date()
     }
 }

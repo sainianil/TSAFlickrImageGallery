@@ -23,8 +23,13 @@ class FlickrJSONParserTest: XCTestCase {
         super.tearDown()
     }
     
-    func testJSONParsing() {
-        
+    func testJSONParsingForEmpty() {
+        XCTAssertNotNil(flckrJSONParser?.parse(withJSON: [String:AnyObject]()), "Should not be nil")
+    }
+    
+    func testJSONParsingForInvalidFormat() {
+        let json : [String : AnyObject] = ["1":"abc" as AnyObject, "2":"B" as AnyObject]
+        XCTAssertNotNil(flckrJSONParser?.parse(withJSON: json), "Parser response is nil")
     }
     
     func testPerformanceExample() {

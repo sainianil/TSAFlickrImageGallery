@@ -14,7 +14,7 @@
         <scene sceneID="cAl-Fv-cWZ">
             <objects>
                 <collectionViewController id="cGI-nf-7ee" customClass="FlickrPublicFeedCollectionViewController" customModule="TSAFlickrFeedImageGallery" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WuQ-2g-g0V">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="WuQ-2g-g0V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,7 +60,16 @@
                         </connections>
                     </collectionView>
                     <toolbarItems>
-                        <barButtonItem systemItem="action" id="Hzw-86-vuL"/>
+                        <barButtonItem title="Sort by Date Taken" id="Hzw-86-vuL">
+                            <connections>
+                                <action selector="sortImagesByDateTaken:" destination="cGI-nf-7ee" id="Ttq-V5-lsQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Sort by Published" id="Ktb-km-bIe">
+                            <connections>
+                                <action selector="sortImagesByDatePublished:" destination="cGI-nf-7ee" id="ouz-VO-k2a"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Flickr Public Feeds" id="53Q-gI-Lvb"/>
                 </collectionViewController>
