@@ -191,9 +191,9 @@ class FlickrPublicFeedCollectionViewController: UICollectionViewController, UISe
      * showAlert - Display alert prompt with provided title, message and actionTitle
     */
     func showAlert(withTitle title:String, message:String, actionTitle:String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         //add action to alert
-        alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

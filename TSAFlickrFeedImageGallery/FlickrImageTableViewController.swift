@@ -27,7 +27,7 @@ class FlickrImageTableViewController: UITableViewController {
         self.navigationController?.setToolbarHidden(false, animated: false)
         
         //set variable cell size
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 40
         
         //set asychronously image to imageView, if there is no image set the placeholder
